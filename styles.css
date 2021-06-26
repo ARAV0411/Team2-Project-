@@ -92,3 +92,40 @@ span{
 #register{
     left:450px;
 }
+
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+
+
+
+
+.body {
+    height: 100%;
+    width: 100%;
+}
+
+.centre {
+
+    position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+border: 2px solid red;
+padding: 10px;
+
+}
+
+.apo-image{
+    padding-left: 264px !important;
+    padding-bottom: 20px !important;
+}
+
+.apo-text{
+    font-family: sans-serif;
+    color: #777;
+    text-align: center;
+}

@@ -16,12 +16,13 @@ def login():
 
     # Forget any user_id
     session.clear()
-
+    print('Hello World part 1')
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST":
 
         # Ensure username was submitted
         if not request.form.get("Email Id"):
+            print(request.form.get("Email Id"))
             return apology("must provide Email id", 403)   # add the necessary page required
 
         # Ensure password was submitted
@@ -63,21 +64,19 @@ def logout():
 def register():
     """Register user"""
     if request.method == "POST":
-
+        
         if not request.form.get("username"):
             return apology("provide username", 400)
 
         elif not request.form.get("password"):
             return apology("password", 400)
-
-      """Check on Mobile Number"""
+            
+        
         mobile = request.form.get("mobile_number")
         
         if len(mobile)!=10:
             return apology("Enter correct mobile number",400)
 
-       """Check On Email Id"""
-        
         email = request.form.get("username")
         
         listofemail= email.split("@")
