@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Users/sriramsureshkumar/Desktop/form.css">
+    <title>Form</title>
+</head>
+<body>
+    <h1>Vaccine details form</h1><br>
+    <div class="container">
+        <form action="action_page.php" class='vaccine-form'>
+      
+          <label for="fname">First Name:</label>
+          <input type="text" placeholder="First name"><br><br>
+      
+          <label for="lname">Last Name:</label>
+          <input type="text" placeholder="Last name"><br><br>
+
+          <label for="age">Age:</label>
+          <input type="number" placeholder="Age"><br><br>
+
+          <label for="mobile-number">Mobile number:</label>
+          <input type="number" placeholder="Your Mobile Number"><br><br>
+
+          <label for="email">Email:</label>
+          <input type="text" placeholder="Your Email ID"><br><br>
+      
+          <label for="country">Country</label>
+          <select class="country" name="country">
+            <option value="india">India</option>
+            <option value="usa">USA</option>
+          </select><br><br>
+
+          <label for="Vaccine-status">Vaccine status</label>
+          <select class="Vaccine-status" name="vaccine">
+            <option value="0-dose">Yet to be vaccinated</option>
+            <option value="1-dose">1st dose done</option>
+            <option value="2-dose">2nd dose done</option>
+          </select><br><br>
+
+          <label for="Vaccine-type">Vaccine administered:</label>
+          <select class="Vaccine-type" name="vaccine">
+            <option value="covishield">Covishield</option>
+            <option value="covaxin">Covaxin</option>
+            <option value="sputnik-v">Sputnik-V</option>
+            <option value="none">None</option>
+          </select><br><br>
+
+          <label for="1st-vaccine-date">1st dose date (Leave empty if not taken):</label>
+          <input type="date" placeholder="Date of 1st dose (Not needed if not taken)"><br><br>
+
+          <label for="2nd-vaccine-date">2nd dose date (Leave empty if not taken):</label>
+          <input type="date" placeholder="Date of 2nd dose (Not needed if not taken)"><br><br>
+
+          <label for="submit"></label>
+          <input type="submit" class="submit" value="Submit">
+
+      
+        </form>
+      </div>
+</body>
+</html>

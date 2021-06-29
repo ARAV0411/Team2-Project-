@@ -1,0 +1,33 @@
+body{
+    background-image: url(https://media-exp1.licdn.com/dms/image/C4E0BAQFew0WQG-W8lw/company-logo_200_200/0/1519886254018?e=2159024400&v=beta&t=4uBco9MrMbnB1L4QmEZX-j6RWiURMvhGFfFhVrJdZHo);
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+.vaccine-form{
+    font-size: 25px;
+    font-weight: bold;
+    padding-left: 3%;
+}
+
+input{
+    border: 1.5px solid black;
+    padding: 3px;
+}
+
+.submit{
+    font-weight: bold;
+    margin: 20px;
+    padding: 4px;
+    font-size: 20px;
+}
+
+:hover.submit{
+    background-color: cornflowerblue;
+    color: white;
+}
