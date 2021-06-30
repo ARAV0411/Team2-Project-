@@ -1,0 +1,215 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.wrapper {
+	width: 1170px;
+	margin: auto;
+}
+header {
+	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(banner.jpg);
+	height: 100vh;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+}
+.logo {
+	float: left;
+}
+.logo img {
+	width: 100%;
+	padding: 15px 0;
+}
+.nav-area {
+	float: right;
+	list-style: none;
+	margin-top: 30px;
+}
+.nav-area li {
+	display: inline-block;
+}
+.nav-area li a {
+	background-color: #36096d;
+background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+	text-decoration: none;
+	padding: 5px 20px;
+	font-family: poppins;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+.nav-area li a:hover {
+	background: #fff;
+	color: #333;
+}
+.welcome-text {
+    float: left;
+	position: absolute;
+	width: 600px;
+	height: 300px;
+	margin: 20% 30%;
+	text-align: center;
+}
+.welcome-text h1 {
+    float: left;
+	text-align: left;
+	color: #fff;
+	font-size: 60px;
+}
+.welcome-text h1 span {
+    float: left;
+	
+
+   background-color: #36096d;
+background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
+
+
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.welcome-text a {
+    float: left;
+	border: 1px solid #fff;
+	padding: 10px 25px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 14px;
+	margin-top: 20px;
+	display: inline-block;
+	color: #fff;
+}
+.welcome-text a:hover {
+    float: left;
+	background: #fff;
+	color: #333;
+}
+
+.banner-text{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 15% 0;
+	background-image: url(vcc.jpg);
+
+	height: 30%;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+
+}
+.banner-text-items{
+	color: black;
+	margin: auto;
+	text-align: center;
+
+}
+.banner-text-items h2{
+	font-size: 3em;
+	margin-bottom: 20px;
+
+	background-color: #36096d;
+	background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
+	
+	
+		-webkit-text-fill-color: transparent;
+		-webkit-background-clip: text;
+
+}
+.banner-text-items p{
+	font-size: 18px;
+	color: white;
+}
+
+.first-content{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 15% 0;
+	background-image: url(mask.jpg) ;
+
+	height: 30%;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+}
+.main1{
+	color: black;
+	margin: auto;
+	text-align: center;
+
+}
+.main1 h2{
+	font-size: 3em;
+	margin-bottom: 20px;
+
+	background-color: #36096d;
+	background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
+	
+	
+		-webkit-text-fill-color: transparent;
+		-webkit-background-clip: text;
+}
+.main1 p{
+	font-size: 18px;
+	color: white;
+}
+
+.main-content{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: row wrap;
+	-ms-flex-flow: row wrap;
+	flex-flow: row wrap;
+	padding: 5% 0;
+	background-image: url(vcc2.jpg);
+
+	height: 60%;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+	position: absolute;
+
+}
+.main2 h2{
+	text-align: center;
+	margin-bottom: 20px;
+
+	background-color: #36096d;
+	background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
+	
+	
+		-webkit-text-fill-color: transparent;
+		-webkit-background-clip: text;
+}
+.main2 p{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	padding: 3%;
+	text-align: center;
+	color: white;
+}
+
+.main2 h3{
+	background-color: #36096d;
+	background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
+	
+	
+		-webkit-text-fill-color: transparent;
+		-webkit-background-clip: text;
+	text-align: center;
+}
