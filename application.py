@@ -3,13 +3,18 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
-import sqlite3
+#import sqlite3
+import cs50 
+from cs50 import SQL
 from flask import g
 
 app = Flask(__name__)
+app.secret_key = 'super secret key'
 
-db = sqlite3.connect("user.db")  # part to check
-
+#database = sqlite3.connect("user.db",check_same_thread=False)  # part to check
+#db=database.cursor()    
+#db.execute("create table users( email_id VARCHAR(20) , hash VARCHAR(30) , mobile_no VARCHAR(10))")
+db = SQL("sqlite:///user.db")
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
@@ -18,70 +23,21 @@ def login():
     session.clear()
     
     # User reached route via POST (as by submitting a form via POST)
-    if request.method == "POST":
-
-        if not request.form.get("mobile_number"):
-            
-            if not request.form.get("Email Id"):
-            return apology("must provide Email id", 403)  
-
-            # Ensure password was submitted
-
-            if not request.form.get("password"):
-            return apology("must provide password", 403)  
-            
+    if request.method == "POST":        
             # Query database for username
-            rows = db.execute("SELECT * FROM users WHERE email id = :email id",
-                          username=request.form.get("Email Id"))
-
-            # Ensure username exists and password is correct
+            rows = db.execute("SELECT * FROM users WHERE email_id = ?",request.form.get("Email_Id"))
+                        # Ensure username exists and password is correct
             if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
-                return apology("invalid username and/or password", 403)  
-
+                return apology("Enter valid username/password")
             # Remember which user has logged in
-            session["user_id"] = rows[0]["id"]
+            session["user_id"] = rows[0]["email_id"]
 
             # Redirect user to home page
-            return redirect("index.html")
-        else:
-
-            if not request.form.get("username"):
-            return apology("provide username", 400)
-
-            if not request.form.get("password"):
-                return apology("password", 400)
+            return redirect("/form")
             
-        
-            mobile = request.form.get("mobile_number")
-        
-            if len(mobile)!=10:
-                return apology("Enter correct mobile number",400)
-
-            email = request.form.get("username")
-        
-            listofemail= email.split("@")
-        
-            if listofemail[1] != "314ecorp.com":
-                return apology("Enter the official mail id",400)
- 
-
-            hash = generate_password_hash(request.form.get("password"))
-            result = db.execute("INSERT INTO users (username, hash) VALUES(:username, :hash)",
-                            username=request.form.get("username"),
-                            hash=hash)
-            if not result:
-                return apology("email already exists", 400)
-
-            session["user_id"] = result
-            """Success message"""
-            flash('Registered! Sign in using the same email id')
-            return redirect("login.html") 
-
-
-
     # User reached route via GET (as by clicking a link or via redirect)
     else:
-        return render_template("login.html")
+       return render_template("login.html")
 
 
 
@@ -96,24 +52,18 @@ def logout():
     return redirect("index.html")
 
 
-''' @app.route("/register", methods=["GET", "POST"])
+@app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
     if request.method == "POST":
-        
-        if not request.form.get("username"):
-            return apology("provide username", 400)
 
-        elif not request.form.get("password"):
-            return apology("password", 400)
-            
-        
-        mobile = request.form.get("mobile_number")
+        mobile = request.form.get("mobile_no")
         
         if len(mobile)!=10:
             return apology("Enter correct mobile number",400)
 
-        email = request.form.get("username")
+        email = str(request.form.get("Email"))
+        print(email)
         
         listofemail= email.split("@")
         
@@ -121,23 +71,52 @@ def register():
             return apology("Enter the official mail id",400)
  
 
-        hash = generate_password_hash(request.form.get("password"))
-        result = db.execute("INSERT INTO users (username, hash) VALUES(:username, :hash)",
-                            username=request.form.get("username"),
-                            hash=hash)
+        password = generate_password_hash(request.form.get("password"))
+        result = db.execute("INSERT INTO users(email_id,hash,mobile_no) VALUES(?,?,?)",
+                          email,password,mobile)
+#        result = db.execute("INSERT INTO users(email_id) VALUES(?)",
+#                           (email))
         if not result:
             return apology("email already exists", 400)
 
         session["user_id"] = result
         """Success message"""
         flash('Registered! Sign in using the same email id')
-        return redirect("login.html")     #redirect to login page
+        return redirect("/login")     #redirect to login page
     else:
-        return render_template('login.html')
+        return render_template("login.html")
+
+@app.route("/form",method=["Get","Post"])
+def form():
+     if request.method == "POST":
+        "function for checking vaccinate"
+        firstname=request.form.get("fname")
+        lastname=request.form.get("lname")
+        age=request.form.get("age")
+        mobile_no=request.form.get("mobile_no")
+        email=request.form.get("email")
+        country=request.form.get("country")
+        vaccine_status=request.form.get("vaccine-status")
+        vaccine_administered=request.form.get("vaccine-type")
+        db.execute()
+
+        if vaccine_status=="Yet to be vaccinated":
+            "do"
+        elif vaccine_status=="1st dose done":
+            "do"
+        else:
+            "do"
+        
+        
+     else:
+         return(render_template("form.html"))
 
 
-'''
 
+
+# function for returning apology message 
+def apology(message,error_id):
+    return("Error"+str(error_id)+message)
 
 
 @app.route('/')
